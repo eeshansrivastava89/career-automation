@@ -1,0 +1,18 @@
+# Documents users drop in (resumes, JDs, etc.)
+my-career/*.pdf
+my-career/*.docx
+my-career/*.doc
+
+# Tailored resume outputs (personal data)
+my-career/resumes/
+
+# OS files
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Session context (local only)
+SESSION-CONTEXT.md
