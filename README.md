@@ -1,112 +1,101 @@
+<div align="center">
+
 # Career Automation
 
-An AI-powered career management system. Build your career knowledge base, score job fits, tailor resumes, and prep for interviews — all from one folder.
+**Build your career corpus once, score job fits, tailor resumes, prep for interviews — all from one folder.**
 
-**For non-technical users.** You need an AI agent (Claude Code, Codex, Pi, OpenCode, etc.) and this folder. No terminal needed. No code to write. No LaTeX.
+[![license](https://img.shields.io/github/license/eeshansrivastava89/career-automation)](LICENSE)
+[![platform](https://img.shields.io/badge/platform-Claude%20Code%20%7C%20Codex%20%7C%20Pi%20%7C%20OpenCode-blue)]()
 
----
+</div>
 
-## What This Does
+<br>
 
-Most AI resume tools are single-shot: you paste a JD, they spit out a generic resume. This system is **corpus-driven**. You build a career knowledge base once, and every output (resume, match score, interview prep) derives from it. The more you add, the smarter the agent gets about you.
+**Open your AI agent in this folder.** That's it. There's no install command, no terminal setup, no scripts. The agent reads `AGENTS.md`, sees your files are empty, and walks you through setup.
 
-## How It Works
+```bash
+git clone https://github.com/eeshansrivastava89/career-automation.git
+cd career-automation
+# Then open this folder in Claude Code, Codex, Pi, or OpenCode
+```
 
-The system is driven by **what's in your files**, not by magic commands.
+> **Requirements:** An AI agent that supports custom project instructions (Claude Code, Codex, Pi, OpenCode, etc.) and a text editor for your career files. No code, no terminal, no LaTeX.
 
-1. **First time?** The agent sees that your `my-career/` files are empty. It walks you through setting up your profile and career corpus. This takes about 15 minutes.
-2. **After that?** The agent reads your files and does whatever you're asking for — score a job, write a resume, prep for an interview. If something's missing that affects the action, it asks you first.
+## What it does
 
-No special commands to remember. Just talk to the agent naturally.
+Most AI resume tools are single-shot: paste a JD, get a generic resume. This system is **corpus-driven**. You answer questions about your career once, and every output after that — match scores, tailored resumes, interview prep — derives from that knowledge base. The more you add, the smarter it gets about you.
 
----
+The agent decides what to do based on **what's in your files**, not from parsing what you type. Empty files? It onboards you. Partial info? It fills the gaps. Ready to go? It acts on whatever you ask for.
 
-## Quick Start
+| | |
+|---|---|
+| **Corpus-driven** | Build your career knowledge base once. Every output derives from it. |
+| **Job scoring** | 5-dimension match score + preference fit + company research. Clear apply/skip call. |
+| **Tailored resumes** | One command, clean markdown resume tailored to a specific role. Truthful emphasis, not keyword stuffing. |
+| **Interview prep** | STAR stories mapped to likely questions, gap flags, company-specific prep packets. |
+| **Resume import** | Drop a PDF in `my-career/`, the agent extracts it and builds your corpus. |
+| **Anti-AI-slop** | Banned word lists, "read it aloud" checks, no "pivotal," "testament," "leveraged synergies." |
 
-1. **Download this repo** (clone it, or download the ZIP)
-2. **Open your AI agent** in this folder (Claude Code, Codex, Pi, OpenCode, etc.)
-3. **Say anything** — the agent reads `AGENTS.md`, sees your files are empty, and starts onboarding you
-4. Answer questions about your career. The agent builds your corpus. Done.
+## How it works
 
-No install command. No terminal. No setup script.
+```
+SET UP:      Fill PROFILE.md + build career corpus (one-time, ~15 min)
+EVALUATE:    Paste a job posting → get a match score + company research
+APPLY:       One command → tailored markdown resume from your real accomplishments
+PREPARE:     Get interview → company-specific prep packet with your best stories
+ITERATE:     Add wins, track outcomes, get smarter over time
+```
 
----
+State is file-driven, not command-driven:
 
-## Match Scoring
+| Your files | What the agent does |
+|-----------|-------------------|
+| Empty (placeholders) | Starts onboarding — points you to PROFILE.md, asks about your resume |
+| Partially filled | Fills gaps before taking action, asks for what's missing |
+| Fully filled | Does whatever you ask — score a job, write a resume, prep for an interview |
 
-Every job is scored across 5 dimensions (0-20 each, 0-100 total):
+## Match scoring
 
-| Dimension | What It Measures |
-|-----------|------------------|
-| Skill Overlap | How directly your skills match the JD's requirements |
-| Seniority Fit | Whether your level matches the role's level |
+Every job is scored across 5 dimensions (0-20 each) plus a preference fit check:
+
+| Dimension | Measures |
+|-----------|----------|
+| Skill Overlap | How directly your skills match the JD |
+| Seniority Fit | Whether your level matches the role |
 | Domain Relevance | How relevant your industry experience is |
 | Team/Scope Fit | Whether your leadership experience matches the scope |
-| Edit Effort | How much resume rework needed (inverted — less is better) |
-
-Plus a **preference fit** check: does the job's location, comp, and visa status match what you're looking for?
+| Edit Effort | How much resume rework is needed (inverted) |
 
 | Score | Recommendation |
 |-------|---------------|
-| 85-100 | **Apply** — strong fit |
-| 70-84 | **Apply if interested** — good fit, some gaps |
-| 55-69 | **Stretch** — notable gaps, apply for practice |
-| 0-54 | **Skip** — poor fit, move on |
+| 85-100 | Apply |
+| 70-84 | Apply if interested |
+| 55-69 | Stretch |
+| 0-54 | Skip |
 
-Every score comes with reasoning you can audit.
+Every score comes with reasoning you can audit. The agent doesn't just say "apply" — it shows why.
 
----
-
-## What Makes This Different
-
-**1. Corpus-driven, not prompt-driven.** Other tools generate a resume from whatever you paste in chat. This system builds from a maintained knowledge base that grows over time.
-
-**2. Match scoring with rationale.** Every dimension has a score and notes explaining it. You can challenge any score.
-
-**3. Company research built in.** The agent researches every company before recommending you apply. Layoffs, bad reviews, financial instability — it surfaces the risks.
-
-**4. Anti-AI-slop.** All output is scanned for AI-generated language patterns. No "pivotal," "testament," "leveraged synergies." Writes like a concise professional.
-
-**5. Truthful emphasis.** The agent will not add skills you don't have, inflate titles, or keyword-stuff. If a gap exists, it tells you.
-
-**6. Interview prep, not just resumes.** Score → apply → tailor → prep. One workflow.
-
----
-
-## Folder Structure
+## Folder structure
 
 ```
 career-automation/
-├── AGENTS.md                ← Agent reads this first. Entry point.
-├── skills/                  ← System instructions (don't edit)
-│   ├── corpus-builder/SKILL.md   ← Onboarding + corpus management
-│   ├── job-scorer/SKILL.md        ← Job fit evaluation
-│   ├── resume-writer/SKILL.md    ← Tailored resume generation
-│   └── interview-prep/SKILL.md   ← Interview preparation
-├── my-career/               ← Your career files (agent creates these)
-│   ├── PROFILE.md                 ← Contact info + job search preferences
-│   ├── ACCOMPLISHMENTS.md         ← Your career corpus (source of truth)
-│   ├── MASTER-RESUME.md           ← Baseline resume
-│   ├── INTERVIEW-BANK.md          ← Stories and technical prep
-│   ├── APPLICATIONS-TRACKER.md    ← Job search pipeline
-│   └── resumes/                   ← Tailored resume outputs
-├── tests/                   ← Example end-to-end flow
-├── README.md
-└── LICENSE
+├── AGENTS.md                    ← Agent reads this first
+├── skills/                      ← System instructions (don't edit)
+│   ├── corpus-builder/SKILL.md     Onboarding + corpus management
+│   ├── job-scorer/SKILL.md         JD → match score → recommendation
+│   ├── resume-writer/SKILL.md      Tailored resume generation
+│   └── interview-prep/SKILL.md    Interview prep packets
+└── my-career/                   ← Your career files (the agent fills these)
+    ├── PROFILE.md                  Contact info + job preferences
+    ├── ACCOMPLISHMENTS.md          Career corpus (single source of truth)
+    ├── MASTER-RESUME.md            Baseline resume
+    ├── INTERVIEW-BANK.md           STAR stories + technical prep
+    ├── APPLICATIONS-TRACKER.md     Job search pipeline
+    └── resumes/                    Tailored resume outputs
 ```
 
-**You only need to care about `my-career/`.** Everything else is system files.
-
----
-
-## Requirements
-
-- An AI agent that supports custom instructions or project prompts (Claude Code, Codex, Pi, OpenCode, etc.)
-- A text editor (Obsidian recommended, any markdown editor works)
-- No code, no terminal, no LaTeX, no scripts
-
----
+You only need to care about `my-career/`. Everything else is system files.
 
 ## License
 
-MIT — use it, modify it, share it.
+[MIT](LICENSE)
